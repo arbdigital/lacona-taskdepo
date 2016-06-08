@@ -4,26 +4,31 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.MyNewExtension = undefined;
+exports.MyNewCommand = undefined;
 
 var _elliptical = require('elliptical');
 
 var _laconaPhrases = require('lacona-phrases');
 
-/** @jsx createElement */
-var MyNewExtension = exports.MyNewExtension = {
-  extends: [_laconaPhrases.URL],
+var _laconaApi = require('lacona-api');
 
+var MyNewCommand = exports.MyNewCommand = {
+  extends: [_laconaPhrases.Command],
+
+  execute: function execute(result) {
+    (0, _laconaApi.openURL)({ url: result });
+  },
   describe: function describe(_ref) {
     var config = _ref.config;
 
     return (0, _elliptical.createElement)('literal', {
-      text: 'my homepage',
-      value: config.taskdepo.homepage });
+      text: 'visit my homepage',
+      value: config.myCustomPrefs.homepage });
   }
-};
+}; /** @jsx createElement */
 
-exports.default = [MyNewExtension];
 
-},{"elliptical":"elliptical","lacona-phrases":"lacona-phrases"}]},{},[1])(1)
+exports.default = [MyNewCommand];
+
+},{"elliptical":"elliptical","lacona-api":"lacona-api","lacona-phrases":"lacona-phrases"}]},{},[1])(1)
 });

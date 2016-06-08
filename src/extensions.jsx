@@ -1,17 +1,22 @@
 /** @jsx createElement */
 import { createElement } from 'elliptical'
-import { URL } from 'lacona-phrases'
+import { Command } from 'lacona-phrases'
+import { openURL } from 'lacona-api'
 
-export const MyNewExtension = {
-  extends: [URL],
+export const MyNewCommand = {
+  extends: [Command],
+
+  execute (result) {
+    openURL({url: result})
+  },
 
   describe ({config}) {
     return (
       <literal
-        text='my homepage'
+        text='visit my homepage'
         value={config.taskdepo.homepage} />
     )
   }
 }
 
-export default [MyNewExtension]
+export default [MyNewCommand]
