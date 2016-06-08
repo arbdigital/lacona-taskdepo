@@ -1,0 +1,13 @@
+{
+  "taskdepo": {
+    "title": "TaskDepo",
+    "type": "object",
+    "properties": {
+      "homepage": {
+        "title": "Homepage URL",
+        "type": "string",
+        "default": "http://lacona.io"
+      }
+    }
+  }
+}
